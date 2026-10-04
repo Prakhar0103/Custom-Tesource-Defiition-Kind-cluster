@@ -1,0 +1,38 @@
+kind: CustomResourceDefinition
+apiVersion: apiextensions.k8s.io/v1
+metadata:
+  name: devopsbatches.devopsgroup.com # naam ke aage group likhna padta hai
+spec:
+  group: devopsgroup.com  # Group Hamesha Domain ke format mein hota hai
+  names:
+    plural: devopsbatches  #Plural mein kaise iss resource ko bulaya jayega
+    singular: devopsbatch # Same singlar mein kaise bulaya jayega
+    kind: DevOpsBatch
+    shortNames:
+      - devo
+      - opd
+      - devop
+  scope: Namespaced # Scope mein namespace diya hai iska matlab namespace bhi de sakte  hai iss resource ke liye
+  versions:
+  - name: v1
+    served: true 
+    storage: true
+    schema:
+      openAPIV3Schema: # Yeh Schema default hai jo bohot jagah use krte hai
+        type: object # Alag alag type ka openAPIV3Schema hota hai yaha humne object liya hai
+        properties:
+          spec:
+            type: object
+            properties:
+              name:
+                type: string
+                description: "This is the name of the DevOps Batch"
+              duration:
+                type: string
+                description: "The Duration of the DevOps batch"
+              mode:
+                type: string
+                description: "This is the mode of the batch eg. Live or Recorded"
+              platform:
+                type: string
+                description: "This is the platform for the batch"

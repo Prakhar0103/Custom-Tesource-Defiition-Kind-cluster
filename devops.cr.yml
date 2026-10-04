@@ -1,0 +1,9 @@
+kind: DevOpsBatch
+apiVersion: devopsgroup.com/v1
+metadata:
+  name: devops-batch-1
+spec:
+  name: My first DevOps Batch
+  duration: 3 monnths 2026
+  platform: google.com
+  mode: Live as always
